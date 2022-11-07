@@ -3,6 +3,7 @@ import 'dotenv/config'
 // 引用 linebot
 import linebot from 'linebot'
 import fetchCafe from './commands/fetchCafe.js'
+// import temp from './temp/cafe.js'
 
 // console.log(process.env)
 // 設定 linebot 用linebot套件建立一個機器人
@@ -15,9 +16,9 @@ const bot = linebot({
 bot.on('message', event => {
   // console.log(event)
   if (event.message.type !== 'text') return
-  if (event.message.text === '忠孝新生') {
-    fetchCafe(event)
-  }
+  // if (event.message.text === '忠孝新生') {
+  fetchCafe(event)
+  // }
 })
 
 // linebot 偵測指定 port 的指定路徑請求

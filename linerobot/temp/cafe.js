@@ -75,15 +75,17 @@ export default {
         height: 'sm',
         action: {
           type: 'uri',
-          label: '~店家網址~',
+          label: 'WEBSITE',
           uri: 'https://linecorp.com'
         }
       },
       {
-        type: 'box',
-        layout: 'vertical',
-        contents: [],
-        margin: 'sm'
+        type: 'button',
+        action: {
+          type: 'uri',
+          label: 'map',
+          uri: 'https://www.google.com.tw/maps/place/'
+        }
       }
     ],
     flex: 0

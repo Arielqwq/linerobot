@@ -1,5 +1,5 @@
 import axios from 'axios'
-import temp from '../temp/course.js'
+import temp from '../temp/cafe.js'
 import writejson from '../utils/writejson.js'
 
 export default async (event) => {

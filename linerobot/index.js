@@ -4,11 +4,9 @@ import 'dotenv/config'
 import linebot from 'linebot'
 import fetchCafe from './commands/fetchCafe.js'
 
-// 查名稱
-// import axios from 'axios'
-// import fetchCafeName from './commands/fetchCafeName.js'
-// const { data } = axios.get('https://cafenomad.tw/api/v1.2/cafes')
-// 查名稱
+// 查店名----------------------------
+import fetchCafeName from './commands/fetchCafeName.js'
+// 查店名----------------------------
 
 // console.log(process.env)
 // 設定 linebot 用linebot套件建立一個機器人
@@ -21,10 +19,13 @@ const bot = linebot({
 // 查捷運-----------------------------
 bot.on('message', event => {
   if (event.message.type !== 'text') return
-  fetchCafe(event)
-
-  // 查名稱-----------------------------
-  // 查名稱-----------------------------
+  if (event.message.text.startsWith('查店名 ')) {
+    fetchCafeName(event)
+  } else {
+    fetchCafe(event)
+    // 查店名----------------------------
+  }
+  // 查店名----------------------------
 })
 // 查捷運-----------------------------
 

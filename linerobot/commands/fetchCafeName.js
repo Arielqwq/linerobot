@@ -5,9 +5,9 @@ import writejson from '../utils/writejson.js'
 export default async (event) => {
   // if (event.message.type === 'text') {
   try {
-    // 查捷運站
+    // 查名稱
     const { data } = await axios.get('https://cafenomad.tw/api/v1.2/cafes')
-    const cafes = data.filter(cafe => cafe.mrt === event.message.text)
+    const cafes = data.filter(cafe => cafe.name === event.message.text)
     const bubbles = []
     for (const cafe of cafes) {
       // console.log(cafe)
@@ -24,7 +24,7 @@ export default async (event) => {
 
       // bubble.body.contents[1].contents[0].contents[0].text = cafe.find('address').text().trim()
       bubbles.push(bubble)
-      // 查捷運站
+      // 查名稱
     }
     // console.log(bubbles)
     const reply = {

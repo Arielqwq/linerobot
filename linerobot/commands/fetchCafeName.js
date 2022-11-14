@@ -31,6 +31,7 @@ export default async (event) => {
       //   if (bubbles.length >= 12) { break }
       // }
     }
+
     const replies = _.chunk(bubbles, 10).slice(0, 5).map(bubblesss => {
       console.log(bubblesss)
       return {
@@ -52,6 +53,10 @@ export default async (event) => {
     //     contents: bubbles
     //   }
     // }
+    if (bubbles.length === 0) {
+      event.reply('目前未找到相符的資料，請稍候再試')
+      return
+    }
     event.reply(replies)
     if (process.env.WRITEJSON) {
       for (const i in replies) {

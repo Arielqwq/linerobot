@@ -29,7 +29,7 @@ export default async (event) => {
     // console.log(bubbles)
     const reply = {
       type: 'flex',
-      altText: '咖啡店查詢結果',
+      altText: '咖啡店_捷運站名查詢結果',
       contents: {
         type: 'carousel',
         contents: bubbles

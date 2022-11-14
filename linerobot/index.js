@@ -8,6 +8,10 @@ import fetchCafe from './commands/fetchCafe.js'
 import fetchCafeName from './commands/fetchCafeName.js'
 // 查店名----------------------------
 
+// 查location-----------------------
+import fetchDist from './commands/fetchDist.js'
+// 查location-----------------------
+
 // console.log(process.env)
 // 設定 linebot 用linebot套件建立一個機器人
 const bot = linebot({
@@ -16,18 +20,24 @@ const bot = linebot({
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
 })
 
-// 查捷運-----------------------------
 bot.on('message', event => {
-  if (event.message.type !== 'text') return
-  if (event.message.text.startsWith('查店名 ')) {
-    fetchCafeName(event)
-  } else {
-    fetchCafe(event)
+  console.log(event.message)
+  if (event.message.type === 'location') {
+    fetchDist(event)
+  } else if (event.message.type === 'text') {
     // 查店名----------------------------
+    if (event.message.text.startsWith('查店名 ')) {
+      fetchCafeName(event)
+      // 查店名----------------------------
+      // 查location-----------------------
+    } else if (event.message.type === 'location') {
+      // 查location-----------------------
+      // 查捷運-----------------------------
+    } else {
+      fetchCafe(event)
+    } // 查捷運-----------------------------
   }
-  // 查店名----------------------------
 })
-// 查捷運-----------------------------
 
 // linebot 偵測指定 port 的指定路徑請求
 // 雲端機器人會自動偵測 port 所以不寫死

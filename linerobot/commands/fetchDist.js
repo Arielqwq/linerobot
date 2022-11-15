@@ -22,8 +22,10 @@ export default async (event) => {
       const bubble = JSON.parse(JSON.stringify(temp))
       const map = 'https://www.google.com.tw/maps/place/' + coffee.address
       bubble.body.contents[0].text = coffee.name || '-'
-      bubble.body.contents[1].contents[0].contents[1].text = coffee.address || '-'
-      bubble.body.contents[1].contents[1].contents[1].text = coffee.open_time || '-'
+      // bubble.body.contents[1].contents[0].contents[1].text = coffee.address || '-'
+      bubble.body.contents[1].contents[0].contents[2].text = coffee.address || '-'
+      // bubble.body.contents[1].contents[1].contents[1].text = coffee.open_time || '-'
+      bubble.body.contents[1].contents[1].contents[2].text = coffee.open_time || '-'
       bubble.footer.contents[0].action.uri = encodeURI(coffee.url)
       bubble.footer.contents[1].action.uri = encodeURI(map)
       if (!coffee.address) bubble.footer.contents.splice(1, 1)

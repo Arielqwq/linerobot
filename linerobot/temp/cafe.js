@@ -49,7 +49,7 @@ export default {
             contents: [
               {
                 type: 'icon',
-                url: 'https://raw.githubusercontent.com/Arielqwq/linerobot/main/linerobot/images/house.png'
+                url: 'https://raw.githubusercontent.com/Arielqwq/linerobot/main/linerobot/images/clock32.png'
               },
               {
                 type: 'text',

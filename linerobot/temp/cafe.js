@@ -48,6 +48,10 @@ export default {
             spacing: 'sm',
             contents: [
               {
+                type: 'icon',
+                url: 'https://raw.githubusercontent.com/Arielqwq/linerobot/main/linerobot/images/house.png'
+              },
+              {
                 type: 'text',
                 text: 'Time',
                 color: '#aaaaaa',

@@ -2,6 +2,7 @@ import axios from 'axios'
 import temp from '../temp/cafe.js'
 import writejson from '../utils/writejson.js'
 import _ from 'loadsh'
+import validator from 'validator'
 
 // 抓輸入的location的 latitude/longitude
 // 呼叫比對經緯度的function
@@ -29,7 +30,7 @@ export default async (event) => {
       bubble.footer.contents[0].action.uri = encodeURI(coffee.url)
       bubble.footer.contents[1].action.uri = encodeURI(map)
       if (!coffee.address) bubble.footer.contents.splice(1, 1)
-      if (!coffee.url) bubble.footer.contents.splice(0, 1)
+      if (!coffee.url || !validator.isURL(coffee.url, { require_protocol: true })) bubble.footer.contents.splice(0, 1)
 
       bubbles.push(bubble)
       // 查location

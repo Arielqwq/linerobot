@@ -33,7 +33,7 @@ const main = async (event) => {
     // console.log(bubbles)
     const reply = {
       type: 'flex',
-      altText: '咖啡店_店名查詢結果',
+      altText: '咖啡店_店名查詢結果_test',
       contents: {
         type: 'carousel',
         contents: bubbles

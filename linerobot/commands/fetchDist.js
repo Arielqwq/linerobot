@@ -31,6 +31,8 @@ export default async (event) => {
       bubble.footer.contents[1].action.uri = encodeURI(map)
       if (!coffee.address) bubble.footer.contents.splice(1, 1)
       if (!coffee.url || !validator.isURL(coffee.url, { require_protocol: true })) bubble.footer.contents.splice(0, 1)
+      // if (!coffee.url) bubble.footer.contents.splice(0, 1)
+      // if (!coffee.url || !validator.isURL(coffee.url)) bubble.footer.contents.splice(0, 1)
 
       bubbles.push(bubble)
       // 查location

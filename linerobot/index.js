@@ -3,6 +3,7 @@ import 'dotenv/config'
 // 引用 linebot
 import linebot from 'linebot'
 import fetchCafe from './commands/fetchCafe.js'
+// import test2 from './test/test2.js'
 
 // 查店名----------------------------
 import fetchCafeName from './commands/fetchCafeName.js'
@@ -30,12 +31,20 @@ bot.on('message', event => {
       fetchCafeName(event)
       // 查店名----------------------------
       // 查location-----------------------
-    } else if (event.message.type === 'location') {
+      // } else if (event.message.type === 'location') {
       // 查location-----------------------
       // 查捷運-----------------------------
-    } else {
+    } else if (event.message.text.startsWith('查捷運 ')) {
+      // 測試
       fetchCafe(event)
-    } // 查捷運-----------------------------
+      // 原檔
+      // 查捷運-----------------------------
+      // } else {
+      //   fetchCafe(event)
+      // 查捷運-----------------------------
+    } else {
+      event.reply('請輸入正確的查詢規則，謝謝')
+    }
   }
 })
 

@@ -24,7 +24,7 @@ export default async (event) => {
       bubble.footer.contents[0].action.uri = encodeURI(cafe.url) || '-'
       bubble.footer.contents[1].action.uri = encodeURI(map)
       if (!cafe.address) bubble.footer.contents.splice(1, 1)
-      // if (!cafe.url) bubble.footer.contents.splice(0, 1)
+      if (!cafe.url) bubble.footer.contents.splice(0, 1)
       // bubble.footer.contents[1].action.uri.push(map) => is not a function at default
 
       // bubble.body.contents[1].contents[0].contents[0].text = cafe.find('address').text().trim()
